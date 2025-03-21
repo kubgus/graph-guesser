@@ -36,17 +36,19 @@ const drawGraph = () => {
 
 	try {
 		functionPlot({
-			target: plotContainer.value,
-			width: props.width,
-			height: props.height,
+            target: plotContainer.value,
+            width: props.width,
+            height: props.height,
             grid: true,
-			data: [{
-				fn: props.expression,
-				color: props.color,
-				sampler: 'builtIn',
-				graphType: 'polyline'
-			}]
-		});
+            yAxis: { domain: [-7, 7] },
+            xAxis: { domain: [-7, 7] },
+            data: [{
+                fn: props.expression,
+                color: props.color,
+                sampler: 'builtIn',
+                graphType: 'polyline'
+            }]
+        });
 	} catch {}
 };
 
