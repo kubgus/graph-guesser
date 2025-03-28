@@ -27,8 +27,8 @@
 
     const nextExpression = () => {
         if (equal) {
-            index += 1;
-            testExpression.value = expressions[index % expressions.length];
+            index = (index + 1) % expressions.length;
+            testExpression.value = expressions[index];
             userExpression.value = null;
             reCheck();
         }
