@@ -42,11 +42,13 @@ const drawGraph = () => {
             grid: true,
             yAxis: { domain: [-7, 7] },
             xAxis: { domain: [-7, 7] },
+			disableZoom: true,
             data: [{
                 fn: props.expression,
                 color: props.color,
                 sampler: 'builtIn',
-                graphType: 'polyline'
+                graphType: 'polyline',
+				updateOnMouseMove: false,
             }]
         });
 	} catch {}
