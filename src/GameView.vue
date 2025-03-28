@@ -49,8 +49,11 @@
 
 <template>
     <div class="container">
-        <h1 v-bind:class="{ hidden: equal}">📉 Match the blue expression!</h1>
-        <h1 v-bind:class="{ hidden: !equal}">✅ Correct!</h1>
+        <div class="heading-container">
+            <h1 v-bind:class="{ hidden: equal}">📉 Match the blue expression!</h1>
+            <h1 v-bind:class="{ hidden: !equal}">✅ Correct!</h1>
+            <h2>Level: {{ index + 1 }}/{{ expressions.length }}</h2>
+        </div>
         <!--<GraphCanvas :width="600" :height="500" :expression="expression" />-->
         <div class="graph-container">
             <GraphPlotter
@@ -101,8 +104,20 @@
 </template>
 
 <style scoped>
+.heading-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 h1 {
     font-size: 2rem;
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin: 0;
 }
 
 .hidden {
