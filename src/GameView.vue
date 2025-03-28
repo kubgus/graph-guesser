@@ -59,14 +59,14 @@
             <GraphPlotter
                 :width="600"
                 :height="600"
-                :expression="getFinalExpression(testExpression)"
-                color="#3886c2"
+                :expression="getFinalExpression(helpExpression)"
+                color="#da1"
             />
             <GraphPlotter
                 :width="600"
                 :height="600"
-                :expression="getFinalExpression(helpExpression)"
-                color="#da1"
+                :expression="getFinalExpression(testExpression)"
+                color="#3886c2"
             />
             <GraphPlotter
                 :width="600"
