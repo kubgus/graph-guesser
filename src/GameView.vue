@@ -15,6 +15,7 @@
     let index = 0;
 
     const userExpression = ref(null);
+    const helpExpression = ref("sin(x)");
     const testExpression = ref(expressions[index]);
 
     let equal = false;
@@ -58,6 +59,12 @@
             <GraphPlotter
                 :width="600"
                 :height="600"
+                :expression="String(helpExpression)"
+                color="#da1"
+            />
+            <GraphPlotter
+                :width="600"
+                :height="600"
                 :expression="String(userExpression)"
                 color="#c33"
             />
@@ -78,6 +85,14 @@
             >
                 Next
             </button>
+        </form>
+        <form @submit.prevent="" class="input-container">
+            <label id="help-label" for="help-input">pomocné z = </label>
+            <input
+                id="help-input"
+                v-model="helpExpression"
+                placeholder="..."
+            />
         </form>
     </div>
 </template>
@@ -111,7 +126,14 @@ h1 {
 
 .input-container {
     font-size: 1.3rem;
+}
+
+#expression-label {
     color: #c33;
+}
+
+#help-label {
+    color: #da1;
 }
 
 .input-container input {
