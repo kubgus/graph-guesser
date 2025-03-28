@@ -22,6 +22,9 @@
 
     const nextButton = ref(null);
 
+    const getFinalExpression = (value) => String(value)
+        .replace(/pi/g, `(${Math.PI})`);
+
     const nextExpression = () => {
         if (equal) {
             index += 1;
@@ -33,8 +36,8 @@
 
     const reCheck = () => {
         try {
-            const expr1 = simplify(String(userExpression.value));
-            const expr2 = simplify(String(testExpression.value));
+            const expr1 = simplify(getFinalExpression(userExpression.value));
+            const expr2 = simplify(getFinalExpression(testExpression.value));
             equal = expr1.toString() === expr2.toString();
         } catch {
             equal = false;
@@ -53,19 +56,19 @@
             <GraphPlotter
                 :width="600"
                 :height="600"
-                :expression="String(testExpression)"
+                :expression="getFinalExpression(testExpression)"
                 color="#3886c2"
             />
             <GraphPlotter
                 :width="600"
                 :height="600"
-                :expression="String(helpExpression)"
+                :expression="getFinalExpression(helpExpression)"
                 color="#da1"
             />
             <GraphPlotter
                 :width="600"
                 :height="600"
-                :expression="String(userExpression)"
+                :expression="getFinalExpression(userExpression)"
                 color="#c33"
             />
         </div>
