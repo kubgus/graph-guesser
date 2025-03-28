@@ -76,7 +76,7 @@
             />
         </div>
         <form @submit.prevent="nextExpression()" class="input-container">
-            <label id="expression-label" for="expression-input">y = </label>
+            <label id="expression-label" for="expression-input">riešenie y = </label>
             <input
                 id="expression-input"
                 v-model="userExpression"
